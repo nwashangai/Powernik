@@ -80,8 +80,11 @@ class Report extends React.Component<ReportProps> {
       };
     }
     return {};
-    // tslint:disable-next-line: semicolon
   };
+
+  redirect = (path: string) => {
+    this.props.history.push(`/reports/${path}`);
+  }
 
   createData = (record: any): Data => {
     const { name, comment, ...rest } = record;
@@ -130,6 +133,7 @@ class Report extends React.Component<ReportProps> {
             records={this.props.records.map((data: any) =>
               this.createData(data)
             )}
+            redirect={this.redirect}
             clearData={this.clearData}
           />
         )}

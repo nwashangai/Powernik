@@ -37,7 +37,7 @@ const columns: Column[] = [
   }
 ];
 
-const Report = ({ records, clearData }: any) => {
+const Report = ({ records, clearData, redirect }: any) => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -55,7 +55,7 @@ const Report = ({ records, clearData }: any) => {
   return (
     <React.Fragment>
       <header className="report__company">
-        Powernik Employee Bonus Tme Report
+        Powernik Employee Bonus Time Report
         <Button
           color="secondary"
           onClick={clearData}
@@ -86,7 +86,13 @@ const Report = ({ records, clearData }: any) => {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row: any, indx: any) => {
                   return (
-                    <TableRow hover role="checkbox" tabIndex={-1} key={indx}>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      onClick={() => redirect(row.name)}
+                      tabIndex={-1}
+                      key={indx}
+                    >
                       {columns.map(column => {
                         const value = row[column.id];
                         return (

@@ -42,7 +42,9 @@ const Home = ({ records, addEployeeRecord }: any) => {
     const isValid =
       Object.values(state.form)
         .slice(0, 6)
-        .findIndex(element => element === '') < 0;
+        .findIndex(element => element === '') < 0 &&
+      records.find((element: any) => element.name === state.form.name) ===
+        undefined;
     if (isValid) {
       addEployeeRecord(state.form);
       setState({
@@ -50,7 +52,7 @@ const Home = ({ records, addEployeeRecord }: any) => {
         isModal: false
       });
     }
-  }, [addEployeeRecord, state, state.validation]);
+  }, [state.validation]);
 
   const setModal = () => {
     setState({
@@ -73,16 +75,19 @@ const Home = ({ records, addEployeeRecord }: any) => {
       ...state,
       form: {
         ...state.form,
-        [event.target.id]: event.target.value
+        [event.target.id]: event.target.value.trim()
       }
     });
   };
 
   const onSubmit = () => {
+    const isNotExist =
+      records.find((element: any) => element.name === state.form.name) ===
+      undefined;
     setState({
       ...state,
       validation: {
-        name: state.form.name !== '',
+        name: state.form.name !== '' && isNotExist,
         mon: state.form.mon !== '',
         tues: state.form.tues !== '',
         wed: state.form.wed !== '',
