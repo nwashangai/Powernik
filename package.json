@@ -32,7 +32,7 @@
   },
   "scripts": {
     "lint:scss": "stylelint --fix",
-    "lint:ts": "tslint --project tsconfig.json --config tslint.json",
+    "lint:ts": "tslint --project tsconfig.json --config tslint.json --fix",
     "start": "react-scripts start",
     "start:dev": "npm-run-all -p start",
     "build": "react-scripts build",

@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import user from "store/module/user";
+import employeeRecord from 'store/module/employee';
 
-export default combineReducers({ user });
+export default combineReducers({ employeeRecord });
