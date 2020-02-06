@@ -1,0 +1,95 @@
+@import 'sass-rem';
+@import '../../assets/variables';
+
+.report {
+  &__company {
+    height: rem(50px);
+    padding: rem(8px) rem(8px) rem(8px) rem(15px);
+    border-bottom: double map-get($palette, shadow);
+    font-size: rem(30px);
+    text-align: start;
+    color: map-get($palette, tittle);
+  }
+
+  &__clear {
+    float: right;
+  }
+
+  &__table-container {
+    width: 80%;
+    margin: auto;
+    margin-top: rem(20px);
+  }
+
+  &__table {
+    height: fit-content;
+  }
+
+  &__pagination {
+    max-height: fit-content;
+  }
+}
+
+.employee {
+  width: 80%;
+  height: 100vh;
+  margin: rem(30px) auto rem(20px) auto;
+
+  &__bio {
+    display: flex;
+    justify-content: space-between;
+    background-color: map-get($palette, tittle);
+    height: fit-content;
+    padding-bottom: rem(15px);
+    border-top-left-radius: rem(10px);
+    border-top-right-radius: rem(10px);
+  }
+
+  &__avatar {
+    width: rem(170px) !important;
+    height: rem(170px) !important;
+    margin: rem(30px) auto auto rem(40px);
+  }
+
+  &__avatar-container {
+    height: fit-content;
+    margin-left: rem(20px);
+  }
+
+  &__bio-details {
+    margin: rem(40px) rem(50px) auto auto;
+  }
+
+  &__bio-name {
+    margin: rem(6px);
+    font-size: rem(30px);
+    font-weight: bold;
+    color: map-get($palette, pure);
+  }
+
+  &__bio-status {
+    margin: rem(6px);
+    font-size: rem(17px);
+    color: map-get($palette, pure);
+    font-style: italic;
+  }
+
+  &__bio-bonus,
+  &__bio-slack {
+    margin: rem(6px);
+    font-size: rem(17px);
+    font-weight: bold;
+    text-align: end;
+    color: map-get($palette, pure);
+  }
+
+  &__stats {
+    padding-top: rem(20px);
+  }
+
+  &__chart-container {
+    height: rem(450px);
+    padding: rem(20px);
+    border: rem(1px) solid map-get($palette, shadow);
+  }
+}
