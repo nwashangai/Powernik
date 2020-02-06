@@ -50,7 +50,7 @@ const Home = ({ records, addEployeeRecord }: any) => {
         isModal: false
       });
     }
-  }, [addEployeeRecord, state, state.validation]);
+  }, [state.validation]);
 
   const setModal = () => {
     setState({
@@ -79,10 +79,13 @@ const Home = ({ records, addEployeeRecord }: any) => {
   };
 
   const onSubmit = () => {
+    const isNotExist =
+      records.find((element: any) => element.name === state.form.name) ===
+      undefined;
     setState({
       ...state,
       validation: {
-        name: state.form.name !== '',
+        name: state.form.name !== '' && isNotExist,
         mon: state.form.mon !== '',
         tues: state.form.tues !== '',
         wed: state.form.wed !== '',
